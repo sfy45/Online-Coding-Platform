@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, background 0.4s ease-in-out;
+        }
+
+        .container input {
+            width: 100%;
+            padding: 14px;
+            margin: 12px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.4s ease-in-out;
+        }
+
+        .container input:focus {
+            border-color: #4caf50;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(45deg, #4caf50, #2c3e50);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.4s ease-in-out;
+        }
+
+        .container button:hover {
+            background: linear-gradient(45deg, #2c3e50, #4caf50);
+        }
+
+        .toggle-form {
+            margin-top: 15px;
+            color: #333;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.4s ease-in-out;
+        }
+
+        .toggle-form:hover {
+            color: #4caf50;
+        }
+
+        h2 {
+            color: #4caf50;
+        }
+
+        .container.active {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<div id="loginContainer" class="container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return checkLoginCredentials()">
+        <input type="text" id="loginUsername" placeholder="Enter username" required>
+        <input type="password" id="loginPassword" placeholder="Enter password" required>
+        <button type="submit">Login</button>
+    </form>
+    <p class="toggle-form" onclick="toggleForm('signup')">Don't have an account? Sign up</p>
+</div>
+
+<div id="signupContainer" class="container" style="display: none;">
+    <h2>Sign Up</h2>
+    <form id="signupForm" onsubmit="return registerUser()">
+        <input type="text" id="signupUsername" placeholder="Enter username" required>
+        <input type="password" id="signupPassword" placeholder="Enter password" required>
+        <button type="submit">Sign Up</button>
+    </form>
+    <p class="toggle-form" onclick="toggleForm('login')">Already have an account? Login</p>
+</div>
+
+<script>
+    function checkLoginCredentials() {
+        var username = document.getElementById("loginUsername").value;
+        var password = document.getElementById("loginPassword").value;
+
+        // Replace with actual username and password validation logic
+        if (username === "internship451@gmail.com" && password === "@infyskill.in") {
+            alert("Login successful!");
+            // Redirect to a new page
+            window.location.href = "index.html";
+            return false; // Prevent form submission
+        } else {
+            alert("Incorrect username or password. Please try again.");
+            return false; // Prevent form submission
+        }
+    }
+
+    function registerUser() {
+        var username = document.getElementById("signupUsername").value;
+        var password = document.getElementById("signupPassword").value;
+
+        // Replace with actual user registration logic
+        alert("User registered successfully!");
+        // Redirect to a new page
+        window.location.href = "index.html";
+        return false; // Prevent form submission
+    }
+
+    function toggleForm(formToShow) {
+        if (formToShow === 'signup') {
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('signupContainer').style.display = 'block';
+        } else {
+            document.getElementById('loginContainer').style.display = 'block';
+            document.getElementById('signupContainer').style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>

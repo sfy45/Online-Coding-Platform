@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Coding Platform</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/javascript/javascript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/python/python.js"></script>
+</head>
+<style>
+    *
+    {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+   body {
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Lato', sans-serif;
+    background-color: #000000;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+ul li{
+    font-size: 2rem;
+    letter-spacing: 10px;
+    color: #484848;
+    list-style: none;
+    animation: lighting 1.4s linear infinite;
+}
+
+@keyframes lighting
+{
+    0%
+    {
+        color: #484848;
+        text-shadow: none;
+    }
+
+    90%
+    {
+        color: #484848;
+        text-shadow: none;
+    }
+
+    100%
+    {
+        color: #484848;
+        text-shadow: 0 0 7px #fff900, 0 0 50px yellow;
+    }
+}
+ul li:nth-child(1)
+{
+    animation-delay: 0;
+}
+
+ul li:nth-child(2)
+{
+    animation-delay: 0.1s;
+}
+
+ul li:nth-child(3)
+{
+    animation-delay: 0.2s;
+}
+header {
+    display: grid;
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(to right, #3498db, #2c3e50);
+    padding: 30px;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+header:hover {
+    background: linear-gradient(to right, #2980b9, #2c3e50);
+}
+
+#editor {
+    height: 60vh;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: border-color 0.3s;
+}
+
+#editor:hover {
+    border-color: #3498db;
+}
+
+#output {
+    height: 20vh;
+    margin: 20px;
+    background-color: #000000;
+    padding: 10px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+#output:hover {
+    background-color: #d4e6f1;
+}
+
+button {
+    margin: 10px;
+    padding: 15px;
+    font-size: 16px;
+    background: linear-gradient(to right, #3498db, #2c3e50);
+    color: #ecf0f1;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(to right, #2980b9, #2c3e50);
+}
+
+select {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    background: linear-gradient(to right, #3498db, #2c3e50);
+    color: #ecf0f1;
+    border: none;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+select:hover {
+    background: linear-gradient(to right, #2980b9, #2c3e50);
+}
+</style>
+<body>
+    <header>
+        <ul>
+            <li> ONLINE </li>
+            <li> CODING </li>
+            <li> PLATFORM </li>
+        </ul>
+        <label for="language">Choose a language:</label>
+        <select id="language">
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="html"> HTML </option>
+            <option value="C"> C </option>
+            <option value="C++"> C++ </option>
+            <!-- Add more language options as needed -->
+        </select>
+    </header>
+    
+    <div id="editor"></div>
+    <button onclick="runCode()">Run</button>
+    <button onclick="clearcode()"> Clear </button>
+    <div id="output"></div>
+    
+    <script src="main.js"></script>
+    <a href="login_signup_form.html"> Login </a>
+</body>
+</html>
